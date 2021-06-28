@@ -1,0 +1,5 @@
+---
+- hosts: [foodmaster]
+  remote_user: root
+  tasks:
+      fetch: src="/tmp/test.txt" dest="/tmp/backup"
