@@ -4,7 +4,7 @@
   become_method: sudo
   tasks:
    - name: make sqldump
-     mysql_db: state=dump name=test target=/tmp/test.sql
+     shell: mysqldump test > /tmp/test.sql
    - name: copy dump to local
      fetch:
       src: /tmp/test.sql
