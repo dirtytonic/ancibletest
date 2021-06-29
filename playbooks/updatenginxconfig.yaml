@@ -1,0 +1,29 @@
+---
+- hosts: [home]
+  become: true
+  become_method: sudo
+  tasks:
+   - name: copy original config file
+     fetch:
+      src: /etc/nginx/sites-avalible/default
+      dest: /home/dirty_man/backup
+  # генерируем файл конфигурации на основе шаблона
+  # и укажем, что требуется выполнить задачу “restart apache”
+  # если файл изменился
+   - name: write the nginx config file
+     template:
+      src: /home/dirty_man/ancibletest/default
+      dest: /etc/nginx/sites-avalible/default
+     notify:
+     - restart NGINX
+   - name: ensure nginx is running
+     service: 
+      name: nginx
+      state: started
+# раздел описания обработчиков
+  handlers:
+    - name: restart NGINX
+    # используем модуль service для перезапуска веб-сервера
+      service:
+        name: nginx
+        state: restarted
