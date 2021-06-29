@@ -9,3 +9,7 @@
      fetch:
       src: /tmp/test.sql
       dest: /home/dirty_man/backup
+   - name: Removing local dump 
+     file:
+      path: /tmp/test.sql
+      state: absent
