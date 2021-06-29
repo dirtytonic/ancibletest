@@ -5,7 +5,7 @@
   tasks:
    - name: copy original config file
      fetch:
-      src: /etc/nginx/sites-avalible/default
+      src: /etc/nginx/sites-availble/default
       dest: /home/dirty_man/backup
   # генерируем файл конфигурации на основе шаблона
   # и укажем, что требуется выполнить задачу “restart apache”
