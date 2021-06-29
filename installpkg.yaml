@@ -1,0 +1,9 @@
+---
+- hosts: [home]
+  become: yes
+  tasks:
+  - name: Install nginx
+    apt:
+      name:
+      - nginx
+      state: latest
