@@ -3,12 +3,15 @@
   become: true
   become_method: sudo
   tasks:
-   - name: make sqldump
+  #делаем дамп базы
+   - name: Make sqldump
      shell: mysqldump test > /tmp/test.sql
-   - name: copy dump to local
+  #копируем его к себе   
+   - name: Copy dump to local
      fetch:
       src: /tmp/test.sql
       dest: /home/dirty_man/backup
+  #удаляем на удаленной машине
    - name: Removing local dump 
      file:
       path: /tmp/test.sql

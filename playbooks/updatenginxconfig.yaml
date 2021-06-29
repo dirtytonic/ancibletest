@@ -3,6 +3,7 @@
   become: true
   become_method: sudo
   tasks:
+  #копируем оригинальный файл к себе
    - name: copy original config file
      fetch:
       src: /etc/nginx/sites-available/default
