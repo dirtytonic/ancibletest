@@ -1,6 +1,7 @@
 ---
 - hosts: [home]
-  become: yes
+  become: true
+  become_method: sudo
   tasks:
   - name: Install nginx
     apt:
