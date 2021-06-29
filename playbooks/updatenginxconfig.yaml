@@ -5,7 +5,7 @@
   tasks:
    - name: copy original config file
      fetch:
-      src: /etc\nginx\sites-available/default
+      src: /etc/nginx/sites-available/default
       dest: /home/dirty_man/backup
   # генерируем файл конфигурации на основе шаблона
   # и укажем, что требуется выполнить задачу “restart apache”
@@ -13,7 +13,7 @@
    - name: write the nginx config file
      template:
       src: /home/dirty_man/ancibletest/default
-      dest: /etc\nginx\sites-available/default
+      dest: /etc/nginx/sites-available/default
      notify:
      - restart NGINX
    - name: ensure nginx is running
