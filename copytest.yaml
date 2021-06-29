@@ -2,4 +2,5 @@
 - hosts: [foodmaster]
   remote_user: root
   tasks:
+    - name: Copy file to local
       fetch: src="/tmp/test.txt" dest="/tmp/backup"
