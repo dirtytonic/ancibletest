@@ -8,7 +8,7 @@
       src: /etc/nginx/sites-available/default
       dest: /home/dirty_man/backup
   # генерируем файл конфигурации на основе шаблона
-  # и укажем, что требуется выполнить задачу “restart apache”
+  # и укажем, что требуется выполнить задачу “restart NGINX”
   # если файл изменился
    - name: write the nginx config file
      template:
